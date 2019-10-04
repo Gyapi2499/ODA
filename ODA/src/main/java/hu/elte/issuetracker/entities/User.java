@@ -5,6 +5,8 @@
  */
 package hu.elte.issuetracker.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,14 +14,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- *
- * @author KeresztiKrisztián
- */
 @Entity
 @Data
 @NoArgsConstructor
@@ -28,10 +27,8 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    
     @Column(nullable = false)
-    private String username;
+    private String email;
     
     @Column(nullable = false)
     private String password;
@@ -43,7 +40,23 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
     
+    @Column
+    private String avatar;
+    
+    @Column(nullable = false)
+    private String name;
+    
+    @Column
+    @ManyToMany(mappedBy="APPLICANTS_TO_COURSE")
+    @JsonIgnore
+    private List<Course> visitedCourses;
+    
+    @Column
+    @ManyToMany(mappedBy="TEACHERS_TO_COURSE")
+    @JsonIgnore
+    private List<Course> teachedCourses;
+    
     public enum Role {
-        ROLE_GUEST, ROLE_USER, ROLE_ADMIN
+        ROLE_USER, ROLE_TEACHER, ROLE_ADMIN
     }
 }
