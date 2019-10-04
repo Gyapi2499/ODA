@@ -47,12 +47,12 @@ public class User {
     private String name;
     
     @Column
-    @ManyToMany(mappedBy="APPLICANTS_TO_COURSE")
+    @ManyToMany(mappedBy="applicants")
     @JsonIgnore
     private List<Course> visitedCourses;
     
     @Column
-    @ManyToMany(mappedBy="TEACHERS_TO_COURSE")
+    @ManyToMany(mappedBy="teachers")
     @JsonIgnore
     private List<Course> teachedCourses;
     

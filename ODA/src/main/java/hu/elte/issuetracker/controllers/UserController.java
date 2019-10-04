@@ -29,7 +29,7 @@ public class UserController {
 
     @PostMapping("register")
     public ResponseEntity<User> register(@RequestBody User user) {
-        Optional<User> oUser = userRepository.findByUsername(user.getUsername());
+        Optional<User> oUser = userRepository.findByEmail(user.getEmail());
         if (oUser.isPresent()) {
             return ResponseEntity.badRequest().build();
         }
