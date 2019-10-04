@@ -1,4 +1,4 @@
-# ODA
+# ODA 
 Alkalmazásunk egy tánciskola kurzusaira történő jelentkezést teszi áttekinthetőbbé, az oktatók az iskola és a táncosok számára.
 * Funkcionális követelmények:
 	* sima felhasználó:
