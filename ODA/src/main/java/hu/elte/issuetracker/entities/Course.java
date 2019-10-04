@@ -16,7 +16,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,13 +42,13 @@ public class Course {
     @Column(nullable = false)
     private String description;
     
-    @ManyToOne
+    @Column(nullable = false)
     private User createUser;
     
     @Column(nullable = false)
     private LocalDateTime createDate;
     
-    @ManyToOne
+    @Column(nullable = false)
     private User modifyUser;
     
     @Column(nullable = false)
