@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author KeresztiKrisztián
  */
 @RestController
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -30,7 +32,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody User user) {
         Optional<User> oUser = userRepository.findByEmail(user.getEmail());
         if (oUser.isPresent()) {
@@ -42,7 +44,7 @@ public class UserController {
         return ResponseEntity.ok(userRepository.save(user));
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity login(@RequestBody User user) {
         return ResponseEntity.ok().build();
     } 
