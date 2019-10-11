@@ -14,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -44,15 +45,17 @@ public class Course {
     private String description;
     
     @ManyToOne
+    @JoinColumn
     private User createUser;
     
     @Column(nullable = false)
     private LocalDateTime createDate;
     
     @ManyToOne
+    @JoinColumn
     private User modifyUser;
     
-    @Column(nullable = false)
+    @Column
     private LocalDateTime modifyDate;
     
     @Column(nullable = false)
@@ -77,6 +80,4 @@ public class Course {
     @ManyToMany
     @JoinTable (name = "TEACHERS_TO_COURSE")
     private List<User> teachers;
-    
-
 }
