@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -48,11 +49,17 @@ public class UserController {
     
     @GetMapping("/users")
     public ResponseEntity users(){
-        return null;
+        return ResponseEntity.ok(userRepository.findAll());
     }
    
-   @PatchMapping("/set/{id}")
-   public ResponseEntity set(){
-       return null;
+   @PatchMapping("/set")
+   public ResponseEntity set(@RequestParam String email){
+       User user = userRepository.findByEmail(email).get();
+       if(user.getRole()==User.Role.ROLE_USER){
+           user.setRole(User.Role.ROLE_TEACHER);
+       }else{
+           user.setRole(User.Role.ROLE_USER);
+       }
+       return ResponseEntity.ok().build();
    }
 }
