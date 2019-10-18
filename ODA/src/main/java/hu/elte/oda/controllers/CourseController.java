@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hu.elte.issuetracker.controllers;
+package hu.elte.oda.controllers;
 
-import hu.elte.issuetracker.entities.Course;
-import hu.elte.issuetracker.entities.User;
-import hu.elte.issuetracker.repositories.CourseRepository;
-import hu.elte.issuetracker.repositories.UserRepository;
-import hu.elte.issuetracker.security.AuthenticatedUser;
+import hu.elte.oda.entities.Course;
+import hu.elte.oda.entities.User;
+import hu.elte.oda.repositories.CourseRepository;
+import hu.elte.oda.repositories.UserRepository;
+import hu.elte.oda.security.AuthenticatedUser;
+import hu.elte.oda.services.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -39,6 +41,9 @@ public class CourseController {
     
     @Autowired 
     private AuthenticatedUser authenticatedUser;
+    
+    @Autowired 
+    private ImageService imageService;
     
     @PostMapping("/add")
     public ResponseEntity add(Course course){
@@ -88,6 +93,18 @@ public class CourseController {
     public ResponseEntity apply(@RequestParam int id,@RequestParam String email){
         courseRepository.findById(id).get().getApplicants().add(userRepository.findByEmail(email).get());
         return ResponseEntity.ok().build();
+    }
+    @PostMapping(path="/image",consumes="multipart/form-data")
+    public ResponseEntity image(MultipartFile file, int id){
+        String path=imageService.upload(file);
+      if(path.equals("")){
+        Course course = courseRepository.findById(id).get();
+        course.setImage(path);
+        courseRepository.save(course);
+        return ResponseEntity.ok().build();
+      }else{
+          return ResponseEntity.badRequest().build();
+      }
     }
        public enum OrderEnum {
            NAME,DATE,NOT_FULL

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hu.elte.issuetracker.security;
+package hu.elte.oda.security;
 
 import java.io.IOException;
 import java.io.PrintWriter;

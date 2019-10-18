@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hu.elte.issuetracker.repositories;
+package hu.elte.oda.repositories;
 
-import hu.elte.issuetracker.entities.User;
+import hu.elte.oda.entities.User;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 

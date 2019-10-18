@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hu.elte.issuetracker.security;
+package hu.elte.oda.security;
 
-import hu.elte.issuetracker.entities.User;
-import hu.elte.issuetracker.repositories.UserRepository;
+import hu.elte.oda.entities.User;
+import hu.elte.oda.repositories.UserRepository;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;

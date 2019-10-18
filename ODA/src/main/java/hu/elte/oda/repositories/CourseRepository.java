@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hu.elte.issuetracker.repositories;
+package hu.elte.oda.repositories;
 
-import hu.elte.issuetracker.entities.Course;
+import hu.elte.oda.entities.Course;
 import java.util.List;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;

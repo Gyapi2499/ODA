@@ -1,4 +1,4 @@
-package hu.elte.issuetracker;
+package hu.elte.oda;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IssueTrackerApplicationTests {
+public class OdaApplicationTests {
 
 	@Test
 	public void contextLoads() {

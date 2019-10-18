@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hu.elte.issuetracker.entities;
+package hu.elte.oda.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;

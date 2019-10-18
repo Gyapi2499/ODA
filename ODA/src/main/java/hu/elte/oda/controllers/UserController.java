@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hu.elte.issuetracker.controllers;
+package hu.elte.oda.controllers;
 
-import hu.elte.issuetracker.entities.User;
-import hu.elte.issuetracker.repositories.UserRepository;
-import hu.elte.issuetracker.security.AuthenticatedUser;
+import hu.elte.oda.entities.User;
+import hu.elte.oda.repositories.UserRepository;
+import hu.elte.oda.security.AuthenticatedUser;
+import hu.elte.oda.services.ImageService;
 import java.util.Optional;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -35,6 +38,9 @@ public class UserController {
     
     @Autowired 
     private AuthenticatedUser authenticatedUser;
+    
+    @Autowired 
+    private ImageService imageService;
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody User user) {
@@ -70,5 +76,16 @@ public class UserController {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.badRequest().build();
+   }
+   @PostMapping(path="/avatar",consumes = "multipart/form-data")
+   public ResponseEntity avatar(MultipartFile avatar){
+      String path=imageService.upload(avatar);
+      if(path.equals("")){
+        authenticatedUser.getUser().setAvatar(path);
+        userRepository.save(authenticatedUser.getUser());
+        return ResponseEntity.ok().build();
+      }else{
+          return ResponseEntity.badRequest().build();
+      }
    }
 }
