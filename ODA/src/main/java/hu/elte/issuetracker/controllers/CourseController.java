@@ -6,8 +6,10 @@
 package hu.elte.issuetracker.controllers;
 
 import hu.elte.issuetracker.entities.Course;
+import hu.elte.issuetracker.entities.User;
 import hu.elte.issuetracker.repositories.CourseRepository;
 import hu.elte.issuetracker.repositories.UserRepository;
+import hu.elte.issuetracker.security.AuthenticatedUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -30,15 +32,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/course")
 public class CourseController {
     @Autowired
-    CourseRepository courseRepository;
+    private CourseRepository courseRepository;
     
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+    
+    @Autowired 
+    private AuthenticatedUser authenticatedUser;
     
     @PostMapping("/add")
     public ResponseEntity add(Course course){
-        courseRepository.save(course);
-        return ResponseEntity.ok(course);
+        if(authenticatedUser.getUser().getRole()==User.Role.ROLE_ADMIN || authenticatedUser.getUser().getRole()==User.Role.ROLE_TEACHER){
+            courseRepository.save(course);
+            return ResponseEntity.ok(course);
+        }
+        return ResponseEntity.badRequest().build();
     }
     
     @GetMapping("/get/{id}")
@@ -58,14 +66,22 @@ public class CourseController {
     
     @PutMapping("/modify/{id}")
     public ResponseEntity modify(Course course){
-        courseRepository.save(course);
-        return ResponseEntity.ok(course);
+        if(authenticatedUser.getUser().getRole()==User.Role.ROLE_ADMIN || 
+            courseRepository.findById(course.getId()).get().getCreateUser()==authenticatedUser.getUser()){
+                courseRepository.save(course);
+                return ResponseEntity.ok(course);
+        }
+        return ResponseEntity.badRequest().build();
     }
     
     @DeleteMapping("/delete")
     public ResponseEntity delete(@RequestParam int id){
-        courseRepository.deleteById(id);
-        return ResponseEntity.ok().build();
+        if(authenticatedUser.getUser().getRole()==User.Role.ROLE_ADMIN || 
+            courseRepository.findById(id).get().getCreateUser()==authenticatedUser.getUser()){
+                courseRepository.deleteById(id);
+                return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
     }
     
     @PatchMapping("/apply")

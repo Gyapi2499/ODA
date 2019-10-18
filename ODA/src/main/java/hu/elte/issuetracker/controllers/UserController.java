@@ -7,6 +7,7 @@ package hu.elte.issuetracker.controllers;
 
 import hu.elte.issuetracker.entities.User;
 import hu.elte.issuetracker.repositories.UserRepository;
+import hu.elte.issuetracker.security.AuthenticatedUser;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,9 @@ public class UserController {
     
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired 
+    private AuthenticatedUser authenticatedUser;
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody User user) {
@@ -56,12 +60,15 @@ public class UserController {
    
    @PatchMapping("/set")
    public ResponseEntity set(@RequestParam String email){
-       User user = userRepository.findByEmail(email).get();
-       if(user.getRole()==User.Role.ROLE_USER){
-           user.setRole(User.Role.ROLE_TEACHER);
-       }else{
-           user.setRole(User.Role.ROLE_USER);
-       }
-       return ResponseEntity.ok().build();
+        if(authenticatedUser.getUser().getRole()==User.Role.ROLE_ADMIN){
+            User user = userRepository.findByEmail(email).get();
+            if(user.getRole()==User.Role.ROLE_USER){
+                user.setRole(User.Role.ROLE_TEACHER);
+            }else{
+                user.setRole(User.Role.ROLE_USER);
+            }
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
    }
 }
