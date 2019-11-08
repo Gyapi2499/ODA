@@ -12,6 +12,7 @@ import { IssueListComponent } from './issue-list/issue-list.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
 import { IssueDetailComponent } from './issue-detail/issue-detail.component'; 
 import { RoutingModule } from './routing/routing.module';
+import { CourseComponent } from './course/course.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RoutingModule } from './routing/routing.module';
     FooComponent,
     IssueListComponent,
     IssueFormComponent,
-    IssueDetailComponent
+    IssueDetailComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
