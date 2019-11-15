@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IssueListComponent } from "../issue-list/issue-list.component";
 import { IssueFormComponent } from '../issue-form/issue-form.component';
 import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
+import { AddCourseComponent } from '../add-course/add-course.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'issues/add',
-    component: IssueFormComponent
+    component: AddCourseComponent
   },
   {
     path: 'issues/:id',
