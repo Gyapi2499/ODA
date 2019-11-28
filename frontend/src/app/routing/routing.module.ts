@@ -5,6 +5,7 @@ import { IssueListComponent } from "../issue-list/issue-list.component";
 import { IssueFormComponent } from '../issue-form/issue-form.component';
 import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
 import { AddCourseComponent } from '../add-course/add-course.component';
+import { CourseComponent } from '../course/course.component';
 
 const routes: Routes = [
   {
@@ -13,16 +14,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'issues',
+    path: 'asd',
     component: IssueListComponent
   },
   {
-    path: 'issues/add',
+    path: 'add',
     component: AddCourseComponent
   },
   {
     path: 'issues/:id',
-    component: IssueDetailComponent
+    component: CourseComponent
   },
 ];
 
