@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../user.class';
 
 @Component({
   selector: 'app-teacher-to-course',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherToCourseComponent implements OnInit {
 
-  constructor() { }
+  @Input() user:User; 
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

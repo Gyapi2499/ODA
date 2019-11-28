@@ -47,7 +47,8 @@ import { FormsModule } from '@angular/forms';
     MainpageComponent,
     CourseCardComponent,
     UserListComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
