@@ -1,0 +1,12 @@
+.course{
+    text-align: center;
+    border: 3px solid green;
+    padding: 5px;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+}
+.course:hover {
+    background-color: limegreen;
+    border: 3px solid limegreen;
+  }
