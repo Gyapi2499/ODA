@@ -28,6 +28,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { FormsModule } from '@angular/forms';
 import { PromoteToTeacherComponent } from './promote-to-teacher/promote-to-teacher.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
 
 @NgModule({
   declarations: [
@@ -66,6 +68,7 @@ import { PromoteToTeacherComponent } from './promote-to-teacher/promote-to-teach
     NgbModule,
     RoutingModule,
     FormsModule,
+    NgMultiSelectDropDownModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

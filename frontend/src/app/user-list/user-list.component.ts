@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user.class';
 
 @Component({
@@ -8,6 +8,7 @@ import { User } from '../user.class';
 })
 export class UserListComponent implements OnInit {
 
+  @Input() isFullList:boolean;
   users:User[]=[
     {
       id:"asd",

@@ -14,15 +14,15 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'asd',
-    component: IssueListComponent
+    path: 'modify/:id',
+    component: AddCourseComponent
   },
   {
     path: 'add',
     component: AddCourseComponent
   },
   {
-    path: 'issues/:id',
+    path: 'courses/:id',
     component: CourseComponent
   },
 ];

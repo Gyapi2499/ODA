@@ -7,7 +7,8 @@ import { User } from '../user.class';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  @Input() user:User; 
+  @Input() user:User;
+  @Input() isFullList:boolean;
   constructor() {
   }
 
