@@ -27,6 +27,7 @@ import { CourseCardComponent } from './course-card/course-card.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { FormsModule } from '@angular/forms';
+import { PromoteToTeacherComponent } from './promote-to-teacher/promote-to-teacher.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { FormsModule } from '@angular/forms';
     UserListComponent,
     AddCourseComponent,
     UserListComponent,
+    PromoteToTeacherComponent,
   ],
   imports: [
     BrowserModule,
