@@ -5,6 +5,8 @@
         <div class="user_name">
                 {{user.name}}
         </div>
+
+        <app-promote-to-teacher></app-promote-to-teacher>
         <div *ngIf="isFullList && user.role!=USER">
                 {{user.role}}
         </div>

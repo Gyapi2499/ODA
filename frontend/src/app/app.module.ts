@@ -27,7 +27,9 @@ import { CourseCardComponent } from './course-card/course-card.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { FormsModule } from '@angular/forms';
+import { PromoteToTeacherComponent } from './promote-to-teacher/promote-to-teacher.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     UserListComponent,
     AddCourseComponent,
     UserListComponent,
+    PromoteToTeacherComponent,
   ],
   imports: [
     BrowserModule,

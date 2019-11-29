@@ -1,0 +1,67 @@
+img{
+    border-radius: 4px;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+	height: auto;
+	max-height: 200px;
+	max-width: 200px;
+	width: auto;
+}
+
+.course{
+    display : flex;
+    padding-bottom: 16px;
+}
+
+.image{
+    display: flex;
+    float: right;
+    margin-right: 15px;
+   
+}
+
+.text{
+    display:flex;
+    max-width: 700px;
+    width: 700px;
+}
+
+.title{
+    margin-right: 15px;
+    font-size: xx-large;
+}
+.desc{
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
+}
+.date{
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.avatar{
+    margin-right: 15px;
+    height: auto;
+	max-height: 80px;
+    width: auto;
+    border-radius: 50%;
+}
+.teacher{
+    margin-right: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.counter{
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
