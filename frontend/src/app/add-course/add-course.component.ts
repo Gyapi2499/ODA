@@ -2,6 +2,7 @@ import { Component, OnChanges, Input, Output, EventEmitter  } from '@angular/cor
 import { NgForm } from '@angular/forms';
 import {Course} from '../Course/course.interface';
 import { User } from '../user.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-course',
@@ -28,18 +29,23 @@ export class AddCourseComponent implements OnChanges {
     }
   ];
 
-  constructor() {
-    this.model= {
-      title:"asd",
-      description:"asd",
-      date:"asd",
-      id: 1,
-      max:1,
-      actual:1,
-      location:"",
-      image:"",
-      teacher:[],
-      deadLine:"2019.11.11"
+  constructor(private router:Router) {
+    if(router.url.includes("modify")){
+      this.model= {
+        title:"asd",
+        description:"asd",
+        date:"asd",
+        id: 1,
+        max:1,
+        actual:1,
+        location:"",
+        image:"",
+        teacher:[],
+        deadLine:"2019.11.11"
+      }
+    }
+    else{
+      this.model=new Course();
     }
    }
 

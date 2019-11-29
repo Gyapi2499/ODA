@@ -5,4 +5,7 @@
         <div class="user_name">
                 {{user.name}}
         </div>
+        <div *ngIf="isFullList && user.role!=USER">
+                {{user.role}}
+        </div>
     </div>
