@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import {Course} from '../Course/course.interface';
 import { User } from '../user.class';
 import { Router } from '@angular/router';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-add-course',
@@ -11,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class AddCourseComponent implements OnChanges {
 
+  dropdownSettings:IDropdownSettings;
   @Input() course: Course
   public model: Course;
   @Output() onSubmit = new EventEmitter<Course>();
   public teachers:User[]=[
     {
-      id:"asd",
+      id:"asdss",
       name:"Kovács Elemérné",
       avatar:"https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg",
       role:"TEACHER",
@@ -46,7 +48,17 @@ export class AddCourseComponent implements OnChanges {
     }
     else{
       this.model=new Course();
+      this.model.teacher=[];
     }
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'name',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
    }
 
   submit(form: NgForm): void {
