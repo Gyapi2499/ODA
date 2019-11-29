@@ -6,4 +6,10 @@
 
 .buttons{
     display: flex;
+    margin-bottom: 15px;
+    width: 900px;
+}
+
+.proba{
+    margin-right: auto;
 }

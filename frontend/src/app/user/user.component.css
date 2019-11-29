@@ -1,0 +1,23 @@
+.teacher-to-course{
+    max-width: 140px;
+    display:flex;
+}
+
+.legyszi{
+    margin-left:20px;
+}
+
+.avatarpic {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .avatarpic img {
+    width: auto;
+    height: 100%;
+    margin-left: -20px;
+  }
