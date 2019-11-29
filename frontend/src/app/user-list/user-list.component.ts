@@ -11,13 +11,13 @@ export class UserListComponent implements OnInit {
   users:User[]=[
     {
       id:"asd",
-      name:"asd",
+      name:"Kovács Elemérné",
       avatar:"https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg",
       role:"TEACHER",
     },
     {
       id:"asd",
-      name:"asd",
+      name:"Nagy Béla",
       avatar:"https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg",
       role:"TEACHER",
     }

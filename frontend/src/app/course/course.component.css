@@ -28,13 +28,15 @@ img{
     font-size: xx-large;
 }
 .desc{
-    margin-right: 15px;
-	line-height: 20px;
-	margin-bottom: 12px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	width: 90%;
+    color: var(--gray-7b);
+    font-size: 14px;
+    font-weight: var(--font-medium);
+    line-height: 20px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
 }
 .date{
     margin-right: 15px;
