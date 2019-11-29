@@ -1,10 +1,6 @@
 .teacher-to-course{
-    max-width: 140px;
     display:flex;
-}
-
-.legyszi{
-    margin-left:20px;
+    margin-bottom: 10px;
 }
 
 .avatarpic {
@@ -20,4 +16,10 @@
     width: auto;
     height: 100%;
     margin-left: -20px;
+  }
+
+  .user_name{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 25px;
   }
