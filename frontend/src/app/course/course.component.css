@@ -21,6 +21,8 @@ img{
 
 .text{
     display:flex;
+    max-width: 700px;
+    width: 700px;
 }
 
 .title{
@@ -28,11 +30,8 @@ img{
     font-size: xx-large;
 }
 .desc{
-    color: var(--gray-7b);
     font-size: 14px;
-    font-weight: var(--font-medium);
     line-height: 20px;
-    margin-bottom: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
