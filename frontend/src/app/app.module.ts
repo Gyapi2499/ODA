@@ -27,6 +27,7 @@ import { CourseCardComponent } from './course-card/course-card.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { FormsModule } from '@angular/forms';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     RoutingModule,
     FormsModule,
+    NgMultiSelectDropDownModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
