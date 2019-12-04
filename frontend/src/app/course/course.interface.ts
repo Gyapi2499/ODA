@@ -1,14 +1,15 @@
 import { User } from '../user.class';
 
 export class Course{
-   title : string;
+   name : string;
    description: string;
+   createUser:User
    id: number;
-   max: number;
-   actual: number;
+   maxNumber: number;
    location:string;
    date: string;
    image: string;
    teacher: User[];
+   applicants:User[];
    deadLine:string;
 }

@@ -9,23 +9,9 @@ import { User } from '../user.class';
 export class UserListComponent implements OnInit {
 
   @Input() isFullList:boolean;
-  users:User[]=[
-    {
-      id:"asd",
-      name:"Kovács Elemérné",
-      avatar:"https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg",
-      role:"TEACHER",
-    },
-    {
-      id:"asd",
-      name:"Nagy Béla",
-      avatar:"https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg",
-      role:"TEACHER",
-    }
-  ];
+  @Input() public users:User[];
   constructor() {
    }
-
   ngOnInit() {
   }
 

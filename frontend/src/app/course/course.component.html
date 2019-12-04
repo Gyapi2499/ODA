@@ -1,16 +1,16 @@
 <div class="course">
-    <div class="image"><img src={{image}}></div>
+    <div class="image"><img src={{course.image}}></div>
     <div class="text">
         <div class="desc">
-            <h1 class="title">{{title}}</h1>
-            <p class="desc">{{description}}</p>
+            <h1 class="title">{{course.name}}</h1>
+            <p class="desc">{{course.description}}</p>
         </div>
-        <p class="date">határidő: {{date}}</p>
-        <div class="teacher">
-            <img src={{avatar}}>
-            <p class="teacher">{{teacher}}</p>
-        </div>        
-        <h1 class="counter">{{actual}}/{{max}}</h1>
+        <div>
+        <p class="date">határidő: {{course.date}}</p>
+        <app-user-list [users]="course.teacher"></app-user-list>
+        <app-user-list [users]="course.applicants"></app-user-list>
+        </div>
+        <h1 class="counter">{{course.applicants.length}}/{{course.maxNumber}}</h1>
     </div>
 
 </div>

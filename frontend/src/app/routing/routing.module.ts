@@ -6,24 +6,35 @@ import { IssueFormComponent } from '../issue-form/issue-form.component';
 import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
 import { AddCourseComponent } from '../add-course/add-course.component';
 import { CourseComponent } from '../course/course.component';
+import { AuthGuard } from '../auth.guard';
+import { LoginFormComponent } from '../login-form/login-form.component';
+import { ModifyCourseComponent } from '../modify-course/modify-course.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/issues',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'modify/:id',
-    component: AddCourseComponent
+    component: ModifyCourseComponent,
+    canActivate: [ AuthGuard ]
+    
   },
   {
     path: 'add',
-    component: AddCourseComponent
+    component: AddCourseComponent,
+    canActivate: [ AuthGuard ]
   },
   {
-    path: 'courses/:id',
+    path: 'course/:id',
     component: CourseComponent
+  },
+  {
+    path: 'login',
+    component: LoginFormComponent
   },
 ];
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from '../course.service';
+import { ActivatedRoute } from '@angular/router';
+import { Course } from './course.interface';
 
 @Component({
   selector: 'app-course',
@@ -6,29 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
-  public title : string;
-  public description: string;
-  public id: number;
-  public max: number;
-  public actual: number;
-  public date: string;
-  public image: string;
-  public teacher: string;
-  public avatar: string;
+  public course:Course;
 
-  constructor() {
-      this.title="Szééép táncok";
-      this.description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc";
-      this.id=1;
-      this.image="https://24.p3k.hu/app/uploads/sites/11/2018/05/thinkstockphotos-521697453-e1526731524153.jpg";
-      this.max=3;
-      this.actual=1;
-      this.avatar="https://24.p3k.hu/app/uploads/sites/11/2018/05/thinkstockphotos-521697453-e1526731524153.jpg";
-      this.date="2019.05.06";
-      this.teacher="course.teacher";
+  constructor(private route: ActivatedRoute,private courseService: CourseService) {
+      
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.course = new Course();
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.course = await this.courseService.getCourse(id);
   }
 
   

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author KeresztiKrisztián
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -55,8 +57,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody User user) {
-        return ResponseEntity.ok().build();
+    public ResponseEntity login() {
+      return ResponseEntity.ok(authenticatedUser.getUser());
     } 
     
     @GetMapping("/users")

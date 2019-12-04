@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FooComponent } from './foo/foo.component';
 
-
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatButtonToggleModule, MatIconModule, MatButtonModule, MatMenuModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -26,9 +26,11 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddCourseComponent } from './add-course/add-course.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { PromoteToTeacherComponent } from './promote-to-teacher/promote-to-teacher.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { ModifyCourseComponent } from './modify-course/modify-course.component';
 
 
 @NgModule({
@@ -53,9 +55,13 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     AddCourseComponent,
     UserListComponent,
     PromoteToTeacherComponent,
+    LoginFormComponent,
+    ModifyCourseComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
