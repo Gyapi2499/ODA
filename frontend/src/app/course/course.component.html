@@ -6,7 +6,7 @@
             <p class="desc">{{course.description}}</p>
         </div>
         <div>
-        <p class="date">határidő: {{course.date}}</p>
+        <p class="date">határidő: {{course.deadLine}}</p>
         <app-user-list [users]="course.teacher"></app-user-list>
         <app-user-list [users]="course.applicants"></app-user-list>
         </div>

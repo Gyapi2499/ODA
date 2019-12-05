@@ -1,13 +1,17 @@
 <mat-toolbar color="primary">
-  <button mat-button href="/">
+  <button mat-button routerLink="/">
     <mat-icon>home</mat-icon>
-    Issue tracker
+    ODA
   </button>
-
   <span class="fill-remaining-space" fxHide="false" fxHide.gt-sm></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
     <button mat-button routerLink="/issues">My issues</button>
     <button mat-button routerLink="/issues/add">New issues</button>
+    <form class="form-inline waves-light" mdbWavesEffect>
+      <div class="md-form mt-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      </div>
+</form>
   </div>
   <button mat-icon-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
     <mat-icon>menu</mat-icon>
@@ -17,9 +21,4 @@
   <button mat-menu-item routerLink="/issues">My issues</button>
   <button mat-menu-item routerLink="/issues/add">New issues</button>
 </mat-menu>
-
-<app-foo></app-foo>
-<app-mainpage></app-mainpage>
-<app-user-list [isFullList]="false"></app-user-list>
-
 <router-outlet></router-outlet>

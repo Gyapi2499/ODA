@@ -9,13 +9,15 @@ import { CourseComponent } from '../course/course.component';
 import { AuthGuard } from '../auth.guard';
 import { LoginFormComponent } from '../login-form/login-form.component';
 import { ModifyCourseComponent } from '../modify-course/modify-course.component';
+import { MainpageComponent } from '../mainpage/mainpage.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/issues',
+    redirectTo: '',
     pathMatch: 'full',
-    canActivate: [ AuthGuard ]
+    canActivate: [ AuthGuard ],
+    component: MainpageComponent,
   },
   {
     path: 'modify/:id',
@@ -30,7 +32,8 @@ const routes: Routes = [
   },
   {
     path: 'course/:id',
-    component: CourseComponent
+    component: CourseComponent,
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'login',
