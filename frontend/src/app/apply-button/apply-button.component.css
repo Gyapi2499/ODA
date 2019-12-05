@@ -1,0 +1,14 @@
+.apply-button{
+    text-align: center;
+    border: 3px solid green;
+    padding: 5px;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+}
+.apply-button:hover {
+    background-color: limegreen;
+    border: 3px solid limegreen;
+  }

@@ -1,4 +1,4 @@
-.course{
+.new-course-button{
     text-align: center;
     border: 3px solid green;
     padding: 5px;
@@ -8,7 +8,7 @@
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
     margin-top: 5px;
 }
-.course:hover {
+.new-course-button:hover {
     background-color: limegreen;
     border: 3px solid limegreen;
   }
