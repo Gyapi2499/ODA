@@ -1,13 +1,14 @@
 <div class="course">
     <div class="baloldal">
-
         <div class="img_txt">
             <div class="image"><img src={{course.image}}></div>
             <div class="text">
+                <div class="title_buttons">
                     <h1 class="title">{{course.name}}</h1>
                     <app-delete-button></app-delete-button>
                     <app-modify-button></app-modify-button>
-                    <p class="desc">{{course.description}}</p>
+                </div>
+                <p class="desc">{{course.description}}</p>
             </div>
         </div>
         <div class="adatok">

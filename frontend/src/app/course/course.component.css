@@ -2,18 +2,24 @@ img{
     border-radius: 4px;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
 	height: auto;
-	max-height: 200px;
-	max-width: 200px;
+	max-height: 260px;
+	max-width: 260px;
 	width: auto;
 }
 
 .course{
     display : flex;
-    padding-bottom: 16px;
+    padding-right: 150px;
+    padding-left: 150px;
+    margin-top: 50px;
+}
+
+.title_buttons{
+    display:flex;
 }
 
 .img_txt{
-    display: flex;
+    display:flex;
 }
 
 .image{
@@ -24,7 +30,6 @@ img{
 }
 
 .text{
-    display:flex;
     max-width: 700px;
     width: 700px;
 }
@@ -33,13 +38,22 @@ img{
     margin-right: 15px;
     font-size: xx-large;
 }
+
+.baloldal{
+    width: 70%;
+}
+
+.adatok{
+    display:flex;
+}
 .desc{
     font-size: 14px;
     line-height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    max-height: 240px;
     width: 90%;
+    margin-top: 20px;
 }
 .date{
     margin-right: 15px;

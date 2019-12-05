@@ -1,12 +1,12 @@
 .delete-button{
     text-align: center;
-    border: 3px solid darkred;
     padding: 5px;
     background-color: darkred;
     color: white;
     border-radius: 10px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
     margin-top: 5px;
+    margin-right: 10px;
 }
 .delete-button:hover {
     background-color: red;
