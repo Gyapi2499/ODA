@@ -2,12 +2,13 @@
     margin: auto;
     width: 50%;
     padding: 10px;
+    width: 900px;
+    /*background-color: blanchedalmond;*/
 }
 
 .buttons{
     display: flex;
     margin-bottom: 15px;
-    width: 900px;
 }
 
 .proba{
