@@ -12,9 +12,13 @@ img{
     padding-bottom: 16px;
 }
 
+.img_txt{
+    display: flex;
+}
+
 .image{
     display: flex;
-    float: right;
+
     margin-right: 15px;
    
 }

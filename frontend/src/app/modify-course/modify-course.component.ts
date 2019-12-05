@@ -38,7 +38,7 @@ export class ModifyCourseComponent implements OnInit,OnChanges {
     this.onSubmit.emit(this.model);
   }
   onItemSelect(item:User){
-      this.model.teacher.push(item);
+      this.model.teachers.push(item);
   }
 
   ngOnChanges(): void {

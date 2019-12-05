@@ -21,7 +21,7 @@ export class AddCourseComponent implements OnChanges {
 
   constructor(private route: ActivatedRoute,private courseService: CourseService){
       this.model=new Course();
-      this.model.teacher=[];
+      this.model.teachers=[];
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -40,7 +40,7 @@ export class AddCourseComponent implements OnChanges {
     this.onSubmit.emit(this.model);
   }
   onItemSelect(item:User){
-      this.model.teacher.push(item);
+      this.model.teachers.push(item);
   }
 
   ngOnChanges(): void {

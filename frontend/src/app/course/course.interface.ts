@@ -9,7 +9,7 @@ export class Course{
    location:string;
    date: string;
    image: string;
-   teacher: User[];
+   teachers: User[];
    applicants:User[];
    deadLine:string;
 }

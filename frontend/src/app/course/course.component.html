@@ -1,16 +1,34 @@
 <div class="course">
-    <div class="image"><img src={{course.image}}></div>
-    <div class="text">
-        <div class="desc">
-            <h1 class="title">{{course.name}}</h1>
-            <p class="desc">{{course.description}}</p>
+    <div class="baloldal">
+
+        <div class="img_txt">
+            <div class="image"><img src={{course.image}}></div>
+            <div class="text">
+                    <h1 class="title">{{course.name}}</h1>
+                    <app-delete-button></app-delete-button>
+                    <app-modify-button></app-modify-button>
+                    <p class="desc">{{course.description}}</p>
+            </div>
         </div>
-        <div>
-        <p class="date">határidő: {{course.deadLine}}</p>
-        <app-user-list [users]="course.teacher"></app-user-list>
-        <app-user-list [users]="course.applicants"></app-user-list>
+        <div class="adatok">
+            <p>Időpont: {{course.date}}</p>
+            <p>Helyszín: {{course.location}}</p>
+            <p class="date">Határidő: {{course.deadLine}}</p>
+            <app-teacher-to-course *ngFor="let user of course.teachers" [user]="user"></app-teacher-to-course>
+            <div class="szamlalo">
+                <h3>Kurzuslétszám:</h3>
+                <h1 class="counter">{{course.applicants.length}}/{{course.maxNumber}}</h1>
+            </div>
+            
+            
         </div>
-        <h1 class="counter">{{course.applicants.length}}/{{course.maxNumber}}</h1>
+        <app-apply-button></app-apply-button>
     </div>
+    <div class="applicants">
+        <h2>Kurzusra jelentkeztek:</h2>
+        <app-user-list [users]="course.applicants"></app-user-list>
+    </div>
+
+
 
 </div>
