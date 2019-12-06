@@ -4,10 +4,10 @@
             <div  class="proba">
                 <app-new-course-button></app-new-course-button>
             </div>
-            <app-filter (onChange)="getNewOrder($event)"></app-filter>
+            <app-filter (onChange)="getNewOrder(status)"></app-filter>
         </div>
         <app-course-card *ngFor="let course of courses" 
-        [title]=course.name
+        [title]="course.name"
         [description]="course.description"
         [id]="course.id"
         [actual]="course.applicants.length"
@@ -17,7 +17,14 @@
         [avatar] = "course.teachers[0].avatar"
         [image]= "course.image"
         ></app-course-card>
+        <div class="next_prev">
+            <div class="previous">
+                <button *ngIf="page>0" (click)="previousPage()">◀ Előző oldal</button>
+            </div>
+            <div class="next">
+                <button (click)="nextPage()">Következő oldal ▶ </button>
+            </div>
+        </div>
     </div>
-    <button *ngIf="page>0" (click)="previousPage()">Previous page</button>
-    <button (click)="nextPage()">Next Page</button>
+
 </div>

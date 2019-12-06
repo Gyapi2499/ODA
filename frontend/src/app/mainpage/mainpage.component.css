@@ -1,3 +1,17 @@
+button{
+    border-radius: 5px;
+    background-color: whitesmoke;
+    text-align: center;
+    border: 2px solid gray;
+    color: gray;
+    padding: 5px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+button:hover{
+    background-color: gainsboro;
+}
+
 .course-list{
     margin: auto;
     padding: 10px;
@@ -12,4 +26,12 @@
 
 .proba{
     margin-right: auto;
+}
+
+.next_prev{
+    display:flex;
+}
+
+.prefious{
+    margin-left:auto;
 }

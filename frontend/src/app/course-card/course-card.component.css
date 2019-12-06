@@ -28,22 +28,33 @@ img{
 
 .title{
     margin-right: 15px;
-    font-size: xx-large;
+    font-size: 28px;
+    line-height: 30px;
 }
-.desc{
+
+
+.description{
     font-size: 14px;
     line-height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
     width: 90%;
+    height: 100px;
+    width: 280px;
+    margin-right: 20px;
 }
+
 .date{
     margin-right: 15px;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
+
+.date p{
+    margin-bottom: 5px;
+}
+
 .avatar{
     margin-right: 15px;
     height: auto;
