@@ -12,7 +12,6 @@ export class CourseComponent implements OnInit {
   public course:Course;
 
   constructor(private route: ActivatedRoute,private courseService: CourseService) {
-      
   }
 
   async ngOnInit() {
