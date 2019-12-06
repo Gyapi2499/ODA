@@ -30,3 +30,5 @@ Alkalmazásunk egy tánciskola kurzusaira történő jelentkezést teszi átteki
 	* jelentkezés: felhasználó kurzuson történő részvételi szándékának kifejezése
 	* módosítás: Egy adott kurzus adatainak megváltoztatása pl.: helyszín, időpont...
 	* hozzáadás: Új kurzus létrehozása
+	
+![uml diagram]( sekvencia.png)
