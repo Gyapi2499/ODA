@@ -9,7 +9,8 @@
     <button mat-button routerLink="/issues/add">New issues</button>
     <form class="form-inline waves-light" mdbWavesEffect>
       <div class="md-form mt-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <input name="search-bar" class="form-control mr-sm-2" type="text" placeholder="Search"
+        [(ngModel)]="model" (focus)="focus=true" (blur)="focus=false" (keyup.enter)="search()">
       </div>
 </form>
   </div>

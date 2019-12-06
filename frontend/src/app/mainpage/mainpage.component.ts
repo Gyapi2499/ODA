@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { Course } from '../Course/course.interface';
+import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
-  constructor() { }
+  public courses:Course[]
+  public page:number;
+  public status:String;
+  constructor(private courseService:CourseService,private elRef: ElementRef) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.page=0;
+    this.courses=await this.courseService.getMainPage("DATE",this.page);
+    console.log(this.courses)
   }
+  async getNewOrder(status:string){
+    this.page=0;
+    this.courses=await this.courseService.getMainPage(status,this.page);
+  }
+  async nextPage(){
+    this.page+=1;
+    this.courses=await this.courseService.getMainPage("DATE",this.page);
+  }
+  async previousPage(){
+    this.page-=1;
+    this.courses=await this.courseService.getMainPage("DATE",this.page);
+  }
+  
 
 }

@@ -49,7 +49,7 @@ public class Course {
     @JoinColumn
     private User createUser;
     
-    @Column(nullable = false)
+    @Column(name="CreateDate",nullable = false)
     private LocalDateTime createDate;
     
     @ManyToOne

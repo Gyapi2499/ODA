@@ -18,10 +18,12 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CourseRepository extends PagingAndSortingRepository<Course, Integer> {
-    List<Course> findAllOrderByCreateDate(Pageable pageable);
+    @Query("select c from Course c Order by c.id")
+    List<Course> findAllOrderById(Pageable pageable);
+    @Query("select c from Course c Order by c.name")
     List<Course> findAllOrderByName(Pageable pageable);
-    /*@Query("ide kell majd egy query ami kilistázza a nem betelt kurzusokat")
-    List<Course> findNotFull(Pageable pageable);*/
+    @Query("select c from Course c where count(c.applicants)<c.maxNumber")
+    List<Course> findNotFull(Pageable pageable);
     //TODO bőviteni hogy leírásban is keressen
     List<Course> findAllByNameContaining(String queryString);
     

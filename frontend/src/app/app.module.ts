@@ -31,6 +31,7 @@ import { PromoteToTeacherComponent } from './promote-to-teacher/promote-to-teach
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ModifyCourseComponent } from './modify-course/modify-course.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { ModifyCourseComponent } from './modify-course/modify-course.component';
     PromoteToTeacherComponent,
     LoginFormComponent,
     ModifyCourseComponent,
+    SearchPageComponent,
   ],
   imports: [
     BrowserModule,

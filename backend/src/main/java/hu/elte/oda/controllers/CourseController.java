@@ -60,12 +60,17 @@ public class CourseController {
         return ResponseEntity.ok(courseRepository.findById(id));
     }
     
-    @GetMapping("/mainpage")
-    public ResponseEntity mainpage(OrderEnum order,int page){
+     @GetMapping("/search/{query}")
+    public ResponseEntity search(@PathVariable String query){
+        return ResponseEntity.ok(courseRepository.findAllByNameContaining(query));
+    }
+    
+    @GetMapping("/mainpage/{order}/{page}")
+    public ResponseEntity mainpage(@PathVariable OrderEnum order, @PathVariable int page){
         switch(order){
-            case NAME: return ResponseEntity.ok(courseRepository.findAllOrderByName(PageRequest.of(page-1, 10)));
-            case DATE: return ResponseEntity.ok(courseRepository.findAllOrderByCreateDate(PageRequest.of(page-1, 10)));
-            case NOT_FULL: return ResponseEntity.ok(courseRepository.findAllOrderByName(PageRequest.of(page-1, 10)));
+            case NAME: return ResponseEntity.ok(courseRepository.findAllOrderByName(PageRequest.of(page, 10)));
+            case DATE: return ResponseEntity.ok(courseRepository.findAllOrderById(PageRequest.of(page, 10)));
+            case NOT_FULL: return ResponseEntity.ok(courseRepository.findAllOrderByName(PageRequest.of(page, 10)));
         }
         return ResponseEntity.badRequest().build();
     }
@@ -80,8 +85,8 @@ public class CourseController {
         return ResponseEntity.badRequest().build();
     }
     
-    @DeleteMapping("/delete")
-    public ResponseEntity delete(@RequestParam int id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity delete(@PathVariable int id){
         if(authenticatedUser.getUser().getRole()==User.Role.ROLE_ADMIN || 
             courseRepository.findById(id).get().getCreateUser()==authenticatedUser.getUser()){
                 courseRepository.deleteById(id);

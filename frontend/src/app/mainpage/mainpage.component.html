@@ -5,8 +5,20 @@
             <div  class="proba">
                 <app-new-course-button></app-new-course-button>
             </div>
-            <app-filter></app-filter>
+            <app-filter (onChange)="getNewOrder(status)"></app-filter>
         </div>
-        <app-course-card></app-course-card>
+        <app-course-card *ngFor="let course of courses" 
+        [title]=course.name
+        [description]="course.description"
+        [id]="course.id"
+        [actual]="course.applicants.length"
+        [max] = "course.maxNumber"
+        [date]="course.date"
+        [teacher]="course.teachers[0].name"
+        [avatar] = "course.teachers[0].avatar"
+        [image]= "course.image"
+        ></app-course-card>
     </div>
+    <button *ngIf="page>0" (click)="previousPage()">Previous page</button>
+    <button (click)="nextPage()">Next Page</button>
 </div>

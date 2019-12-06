@@ -39,6 +39,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginFormComponent
   },
+  {
+    path: 'searchq/:query',
+    component: MainpageComponent,
+    canActivate: [ AuthGuard ]
+  },
 ];
 
 @NgModule({

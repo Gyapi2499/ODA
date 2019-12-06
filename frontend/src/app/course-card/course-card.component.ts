@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-course-card',
@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseCardComponent implements OnInit {
 
-  public title : string;
-  public description: string;
-  public id: number;
-  public max: number;
-  public actual: number;
-  public date: string;
-  public image: string;
-  public teacher: string;
-  public avatar: string;
+  @Input() public title : string;
+  @Input() public description: string;
+  @Input() public id: number;
+  @Input() public max: number;
+  @Input() public actual: number;
+  @Input() public date: string;
+  @Input() public image: string;
+  @Input() public teacher: string;
+  @Input() public avatar: string;
 
   constructor() {
       this.title="course.title";
