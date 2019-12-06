@@ -12,9 +12,11 @@
             </div>
         </div>
         <div class="adatok">
-            <p>Időpont: {{course.date}}</p>
-            <p>Helyszín: {{course.location}}</p>
-            <p class="date">Határidő: {{course.deadLine}}</p>
+            <div>
+                <p>Időpont: {{course.date}}</p>
+                <p>Helyszín: {{course.location}}</p>
+                <p class="date">Határidő: {{course.deadLine}}</p>
+            </div>
             <app-teacher-to-course *ngFor="let user of course.teachers" [user]="user"></app-teacher-to-course>
             <div class="szamlalo">
                 <h3>Kurzuslétszám:</h3>
