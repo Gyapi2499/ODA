@@ -2,9 +2,10 @@ import { Component, OnChanges, Input, Output, EventEmitter  } from '@angular/cor
 import { NgForm } from '@angular/forms';
 import {Course} from '../Course/course.interface';
 import { User } from '../user.class';
-import {  ActivatedRoute } from '@angular/router';
+import {  ActivatedRoute, Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { CourseService } from '../course.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-add-course',
@@ -16,35 +17,41 @@ export class AddCourseComponent implements OnChanges {
   dropdownSettings:IDropdownSettings;
   @Input() course: Course = null;
   public model: Course;
-  @Output() onSubmit = new EventEmitter<Course>();
+  public deadline:String;
   public teachers:User[];
 
-  constructor(private route: ActivatedRoute,private courseService: CourseService){
+  constructor(private router:Router,private route: ActivatedRoute,private courseService: CourseService,private userService:UserService){
       this.model=new Course();
       this.model.teachers=[];
     this.dropdownSettings = {
       singleSelection: false,
-      idField: 'id',
+      idField: 'email',
       textField: 'name',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
       allowSearchFilter: true
     };
    }
 
-  submit(form: NgForm): void {
+  async submit(form: NgForm) {
     if (!form.valid) {
       return;
     }
-    this.onSubmit.emit(this.model);
+    console.log(this.model)
+    this.model.deadLine=new Date(this.deadline+'T23:59:48.000')
+    this.model = await this.courseService.createCourse(this.model);
+    this.router.navigate(['course/'+this.model.id])
   }
   onItemSelect(item:User){
-      this.model.teachers.push(item);
+      console.log(this.model.teachers);
   }
 
   ngOnChanges(): void {
     this.model = Object.assign({}, this.course);
+  }
+
+  async ngOnInit() {
+    this.teachers = await this.userService.getTeachers();
   }
 
 }

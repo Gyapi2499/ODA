@@ -10,6 +10,7 @@ import { AuthGuard } from '../auth.guard';
 import { LoginFormComponent } from '../login-form/login-form.component';
 import { ModifyCourseComponent } from '../modify-course/modify-course.component';
 import { MainpageComponent } from '../mainpage/mainpage.component';
+import { SearchPageComponent } from '../search-page/search-page.component';
 
 const routes: Routes = [
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'searchq/:query',
-    component: MainpageComponent,
+    component: SearchPageComponent,
     canActivate: [ AuthGuard ]
   },
 ];

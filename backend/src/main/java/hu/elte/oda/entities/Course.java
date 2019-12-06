@@ -65,7 +65,7 @@ public class Course {
     private String location;
     
     @Column(nullable = false)
-    private LocalDateTime date;
+    private String date;
     
     @Column(nullable = false)
     private LocalDateTime deadLine;
@@ -73,7 +73,7 @@ public class Course {
     @Column(nullable = false)
     private int maxNumber;
     
-    @Column(nullable = false)
+    @Column()
     private String image;
         
     @ManyToMany

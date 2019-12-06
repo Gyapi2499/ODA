@@ -11,5 +11,5 @@ export class Course{
    image: string;
    teachers: User[];
    applicants:User[];
-   deadLine:string;
+   deadLine:Date;
 }

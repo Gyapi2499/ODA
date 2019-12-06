@@ -7,8 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class FilterComponent {
 
-  @Input('status') selectedStatus: string = '';
-  public statuses: string[] = [ 'NAME', 'NOT-FULL'];
+  @Input('status') selectedStatus: string = 'DATE';
+  public statuses: string[] = ['DATE', 'NAME', 'NOT_FULL'];
   @Output() onChange = new EventEmitter<string>();
 
   constructor() { }

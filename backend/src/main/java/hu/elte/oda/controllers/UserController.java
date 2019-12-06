@@ -90,4 +90,8 @@ public class UserController {
           return ResponseEntity.badRequest().build();
       }
    }
+   @GetMapping("/teach")
+   public ResponseEntity getTeacher(){
+       return ResponseEntity.ok(userRepository.findAllTeacher());
+   }
 }

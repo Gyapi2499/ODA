@@ -6,7 +6,9 @@
 package hu.elte.oda.repositories;
 
 import hu.elte.oda.entities.User;
+import java.util.List;
 import java.util.Optional;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -15,4 +17,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface UserRepository extends CrudRepository<User, Long> {
     Optional<User> findByEmail(String username);
+    @Query("select u from User u where u.role='ROLE_TEACHER' or u.role='ROLE_ADMIN'")
+    List<User> findAllTeacher();
 }

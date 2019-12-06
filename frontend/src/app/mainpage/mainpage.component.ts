@@ -12,12 +12,11 @@ export class MainpageComponent implements OnInit {
   public courses:Course[]
   public page:number;
   public status:String;
-  constructor(private courseService:CourseService,private elRef: ElementRef) { }
+  constructor(private courseService:CourseService) { }
 
   async ngOnInit() {
     this.page=0;
     this.courses=await this.courseService.getMainPage("DATE",this.page);
-    console.log(this.courses)
   }
   async getNewOrder(status:string){
     this.page=0;
