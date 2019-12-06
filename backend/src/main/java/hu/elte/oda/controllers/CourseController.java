@@ -11,6 +11,7 @@ import hu.elte.oda.repositories.CourseRepository;
 import hu.elte.oda.repositories.UserRepository;
 import hu.elte.oda.security.AuthenticatedUser;
 import hu.elte.oda.services.ImageService;
+import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,8 +49,12 @@ public class CourseController {
     private ImageService imageService;
     
     @PostMapping("/add")
-    public ResponseEntity add(Course course){
+    public ResponseEntity add(@RequestBody Course course){
         if(authenticatedUser.getUser().getRole()==User.Role.ROLE_ADMIN || authenticatedUser.getUser().getRole()==User.Role.ROLE_TEACHER){
+            System.out.println(course.getDate());
+            course.setCreateDate(LocalDateTime.now());
+            course.setCreateDate(LocalDateTime.now());
+            course.setCreateUser(authenticatedUser.getUser());
             courseRepository.save(course);
             return ResponseEntity.ok(course);
         }
@@ -70,7 +76,7 @@ public class CourseController {
         switch(order){
             case NAME: return ResponseEntity.ok(courseRepository.findAllOrderByName(PageRequest.of(page, 10)));
             case DATE: return ResponseEntity.ok(courseRepository.findAllOrderById(PageRequest.of(page, 10)));
-            case NOT_FULL: return ResponseEntity.ok(courseRepository.findAllOrderByName(PageRequest.of(page, 10)));
+            case NOT_FULL: return ResponseEntity.ok(courseRepository.findNotFull(PageRequest.of(page, 10)));
         }
         return ResponseEntity.badRequest().build();
     }

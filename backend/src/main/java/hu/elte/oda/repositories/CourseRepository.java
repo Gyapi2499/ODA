@@ -7,6 +7,7 @@ package hu.elte.oda.repositories;
 
 import hu.elte.oda.entities.Course;
 import java.util.List;
+import javax.persistence.NamedNativeQuery;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -22,7 +23,7 @@ public interface CourseRepository extends PagingAndSortingRepository<Course, Int
     List<Course> findAllOrderById(Pageable pageable);
     @Query("select c from Course c Order by c.name")
     List<Course> findAllOrderByName(Pageable pageable);
-    @Query("select c from Course c where count(c.applicants)<c.maxNumber")
+    @Query("SELECT c FROM Course c where size(c.applicants)<c.maxNumber")
     List<Course> findNotFull(Pageable pageable);
     //TODO bőviteni hogy leírásban is keressen
     List<Course> findAllByNameContaining(String queryString);

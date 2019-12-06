@@ -1,1 +1,21 @@
-<p>search-page works!</p>
+<div class="mainpage">
+    <div class="course-list">
+        <div class="buttons">
+            <div  class="proba">
+                <app-new-course-button></app-new-course-button>
+            </div>
+            <app-filter (onChange)="getNewOrder($status)"></app-filter>
+        </div>
+        <app-course-card *ngFor="let course of courses" 
+        [title]=course.name
+        [description]="course.description"
+        [id]="course.id"
+        [actual]="course.applicants.length"
+        [max] = "course.maxNumber"
+        [date]="course.date"
+        [teacher]="course.teachers[0].name"
+        [avatar] = "course.teachers[0].avatar"
+        [image]= "course.image"
+        ></app-course-card>
+    </div>
+</div>

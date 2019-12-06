@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from '../course.service';
+import { Course } from '../Course/course.interface';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search-page',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor() { }
+  public courses:Course[]
+  public page:number;
+  constructor(private courseService:CourseService,private router: ActivatedRoute,
+    private route: Router) {
+      route.events.subscribe((val) => {
+        this.onUrlChange();
+      });
+     }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.courses=await this.courseService.searchCourse(this.router.snapshot.params['query']);
   }
+  async onUrlChange(){
+    this.courses= await this.courseService.searchCourse(this.router.snapshot.params['query']);
+  }
+
 
 }
