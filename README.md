@@ -30,5 +30,50 @@ Alkalmazásunk egy tánciskola kurzusaira történő jelentkezést teszi átteki
 	* jelentkezés: felhasználó kurzuson történő részvételi szándékának kifejezése
 	* módosítás: Egy adott kurzus adatainak megváltoztatása pl.: helyszín, időpont...
 	* hozzáadás: Új kurzus létrehozása
+* Használt technológiák:
+	* Java Spring Boot technológia 
+	* MVC modell
+	* REST API
+	* H2
+	* lombok
+	* apache commons
+* Végpontok:
+	* GET/course/get/:id: egy kurzus lekérése
+	* GET/course/mainpage: Főoldal lekérése
+	* POST/course/add: Kurzus hozzáadása
+	* PUT/course/modify/:id: kurzus módosítása
+	* DELETE/course/delete: kurzus törlése
+	* PATCH/course/apply: jelentkezés kurzusra
+	* POST/course/image: kurzus borítóképének kezelése
+	* POST/users/register: regisztrációs adatok elküldése
+	* POST/users/login: belepési adatok elküldése
+	* GET/users/users: felhasználók lekérése
+	* PATCH/users/set: felhasználó szerepkörének módosítása
+	* POST/users/avatar: avatar feltöltés
+* Könyvtárstruktúra:
+	* controllers:
+		* CourseController
+		* UserController
+	* entities:
+		* Course
+		* User
+	* repositories:
+		* CourseRepository
+		* UserRepository
+	* services:
+		* ImageService
+* Fejlesztőkörnyezet:
+Lokális IDE: Visual Studio Code 2017, NetBeans IDE 8.2
+	* Github account nem szükséges, de hasznos
+	* Hozzunk létre egy munkakönyvtárat
+	* node.js-el töltsük le az adonisJS-t
+	* adonissJS hozzuk létre a fejlesztő környezetet
+	* Ezen a munkaterületen elkezdhetünk kódolni
+	* Miután végeztünk a munkával elmenthetjük lokálisan vagy github-ra
+	* Githubra először a Visual Studio-n belül a Stage All-al kijelöljük a pusholni kívánt fájlokat majd commit-áljuk őket. Ezután a Push paranccsal föltölthetjük a github accountunkra
+
+Használati eset diagramm:
+
+
 	
 ![uml diagram]( sekvencia.png)
