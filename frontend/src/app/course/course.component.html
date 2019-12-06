@@ -5,8 +5,8 @@
             <div class="text">
                 <div class="title_buttons">
                     <h1 class="title">{{course.name}}</h1>
-                    <app-delete-button></app-delete-button>
-                    <app-modify-button></app-modify-button>
+                    <app-delete-button [id]="course.id" *ngIf="(course.createUser && user.email==course.createUser.email) || user.role=='ROLE_ADMIN'"></app-delete-button>
+                    <app-modify-button [id]="course.id" *ngIf="(course.createUser && user.email==course.createUser.email) || user.role=='ROLE_ADMIN'"></app-modify-button>
                 </div>
                 <p class="desc">{{course.description}}</p>
             </div>
@@ -25,7 +25,7 @@
             
             
         </div>
-        <app-apply-button></app-apply-button>
+        <app-apply-button [id]="course.id" (onChange)="apply($event)" *ngIf="course.maxNumber>course.applicants.length"></app-apply-button>
     </div>
     <div class="applicants">
         <h2>Kurzusra jelentkeztek:</h2>

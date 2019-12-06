@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AuthService, httpOptions } from './auth.service';
 import { Course } from './Course/course.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { User } from './user.class';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +32,15 @@ export class CourseService {
     return this.http.post<Course>(`${this.issueUrl}/add`, issue, httpOptions).toPromise();
   }
 
-  updateIssue(issue: Course): Promise<Course> {
+  updateCourse(issue: Course): Promise<Course> {
     return this.http.put<Course>(`${this.issueUrl}/${issue.id}`, issue, httpOptions).toPromise();
   }
 
-  deleteIssue(id:number): Promise<Course> {
+  deleteCourse(id:number): Promise<Course> {
     return this.http.delete<Course>(`${this.issueUrl}/delete/${id}`, httpOptions).toPromise();
+  }
+
+  apply(id:number,user:User):Promise<boolean>{
+    return this.http.put<boolean>(`${this.issueUrl}/apply/${id}`,user, httpOptions).toPromise();
   }
 }

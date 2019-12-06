@@ -89,11 +89,11 @@
         <input matInput
           type="text"
           name="deadLine"
-          [(ngModel)]="model.deadLine"
+          [(ngModel)]="deadline"
           aria-describedby="deadLineHelp"
           placeholder="Enter deadline"
           required
-          pattern="20[1-9][0-9]\.(0[1-9]|1[0-2])\.(0[1-9]|[1-2][0-9]|3[0-1])"
+          pattern="20[1-9][0-9]-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])"
           #deadLine="ngModel">
       </mat-form-field>
       <mat-error *ngIf="deadLine.invalid && (deadLine.dirty || deadLine.touched) && deadLine.errors.required">
@@ -101,6 +101,26 @@
       </mat-error>
       <mat-error *ngIf="deadLine.invalid && (deadLine.dirty || deadLine.touched) && deadLine.errors.pattern">
         deadLine must be a valid date!
+      </mat-error>
+    </div>
+    <div class="form-group">
+      <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
+      <mat-form-field>
+        <input matInput
+          type="number"
+          name="max"
+          [(ngModel)]="model.maxNumber"
+          aria-describedby="deadLineHelp"
+          placeholder="Enter max number"
+          required
+          pattern="[1-9][0-9]*"
+          #max="ngModel">
+      </mat-form-field>
+      <mat-error *ngIf="max.invalid && (max.dirty || max.touched) && max.errors.required">
+        max is required!
+      </mat-error>
+      <mat-error *ngIf="max.invalid && (max.dirty || max.touched) && max.errors.pattern">
+        max must be a valid number!
       </mat-error>
     </div>
   <ng-multiselect-dropdown

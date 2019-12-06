@@ -101,10 +101,21 @@ public class CourseController {
         return ResponseEntity.badRequest().build();
     }
     
-    @PatchMapping("/apply")
-    public ResponseEntity apply(@RequestParam int id,@RequestParam String email){
-        courseRepository.findById(id).get().getApplicants().add(userRepository.findByEmail(email).get());
-        return ResponseEntity.ok().build();
+    @PutMapping("/apply/{id}")
+    public ResponseEntity apply(@PathVariable int id,@RequestBody User user){
+        Course course = courseRepository.findById(id).get();
+        if(course.getMaxNumber()>course.getApplicants().size()){
+            for(User app:course.getApplicants()){
+                if(app.getEmail().equals(user.getEmail())){
+                    return ResponseEntity.ok(false);
+                }
+            }
+        
+            course.getApplicants().add(userRepository.findByEmail(user.getEmail()).get());
+            courseRepository.save(course);
+            return ResponseEntity.ok(true);
+        }
+        return ResponseEntity.ok(false);
     }
     @PostMapping(path="/image",consumes="multipart/form-data")
     public ResponseEntity image(MultipartFile file, int id){

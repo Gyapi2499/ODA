@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CourseService } from '../course.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-button',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteButtonComponent implements OnInit {
 
-  constructor() { }
+  @Input() id:number;
+  constructor(private courseService:CourseService, private router:Router) { }
 
   ngOnInit() {
+  }
+
+  delete(){
+    this.courseService.deleteCourse(this.id);
+    this.router.navigate([''])
   }
 
 }
