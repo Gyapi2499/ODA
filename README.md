@@ -73,7 +73,11 @@ Lokális IDE: Visual Studio Code 2017, NetBeans IDE 8.2
 	* Githubra először a Visual Studio-n belül a Stage All-al kijelöljük a pusholni kívánt fájlokat majd commit-áljuk őket. Ezután a Push paranccsal föltölthetjük a github accountunkra
 
 Használati eset diagramm:
+![felh uml]( felhusecase.png)
+![tanar uml]( tanarusecase.png)
 
+Szekvencia diagramm:
+![szekvencia diagram]( getCourseSequence.png)
 
-	
+Adatbázis terv:	
 ![uml diagram]( sekvencia.png)
