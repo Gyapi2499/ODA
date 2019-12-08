@@ -40,6 +40,7 @@ Alkalmazásunk egy tánciskola kurzusaira történő jelentkezést teszi átteki
 * Végpontok:
 	* GET/course/get/:id: egy kurzus lekérése
 	* GET/course/mainpage: Főoldal lekérése
+	* GET/search/q: keresés
 	* POST/course/add: Kurzus hozzáadása
 	* PUT/course/modify/:id: kurzus módosítása
 	* DELETE/course/delete: kurzus törlése
@@ -80,3 +81,14 @@ Lokális IDE: Visual Studio Code 2017, NetBeans IDE 8.2
 	* ![szekvencia diagram]( getCourseSequence.png)
 * Adatbázis terv:	
 	![uml diagram]( sekvencia.png)
+	
+* Felhasználói dokumentáció:
+	* Indítás: npm install, npm start kiadása után töltse be a böngészőben az oldalt
+	* Bejelentkezés: Felhasználónév és jelszó megadásával az alkalmazás szolgáltatásai elérhetővé vállnak
+	* Listázás: Főoldalon láthatók a tánckurzusok 3 féle rendezés szerint listázhatók a jobb oldalt található rendezés gombok segítségével.
+	* Keresés: A fejlécben található mező segítségével kurzus címekben való keresés lehetséges. A felhasználó beírja a keresni kívánt kifejezést, és az olyan kurzusok melynek címében megtalálható az a kifejezés, listázásra kerülnek.
+	* Jelentkezés: Egy listaelemre kattintva az adott kurzus részletesebb leírására juthatunk itt lehetőség van a kurzusra jelentkezni a jelentkezés gomb megnyomásával.
+	* Kiemelt jogosultsággal:
+		* Kurzus létrehozás: A főoldalon található új kurzus gombbal lehetőség van új kurzus létrehozására. A gomb megnyomása után egy űrlap jelenik meg, melynek helyes kitöltése után a mentés gombra kattintva létrehoztuk a kurzust.
+		* Módosítás/törlés: Saját kurzusunkat képesek vagyunk törölni és módosítani. Ehhez meg kell nyitni az adott kurzus részletes nézetét, majd a cím mellett található törlés gombbal törölhetjük a kurzust, míg a módosítás gombbal egy űrlapra kerülünk, ahol lehetőségünk van a kurzus módosítására. A változtatásokat mentés gombbal tudjuk véglegesíteni.
+
