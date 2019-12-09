@@ -62,14 +62,20 @@ img{
     width: auto;
     border-radius: 50%;
 }
+
 .teacher{
-    margin-right: 15px;
+
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
     
 }
+
+.teacher_tarolo{
+    margin-right: 20px;
+}
+
 .counter{
     margin-right: 15px;
     display: flex;
@@ -77,4 +83,17 @@ img{
     flex-direction: column;
 }
 
-
+.avatarpic {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .avatarpic img {
+    width: auto;
+    height: 100%;
+    margin-left: -20px;
+  }

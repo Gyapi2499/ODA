@@ -1,5 +1,13 @@
-
-.addcourse{
+form{
     margin-top: 50px;
     margin-left:150px;
+}
+
+.nagy{
+    display:flex;
+}
+
+.jobb{
+    margin-left: 150px;
+    margin-right: 150px;
 }
