@@ -134,7 +134,7 @@
 </ng-multiselect-dropdown>
     
     <button mat-raised-button
-      [disabled]="!addCourse.valid" 
+      [disabled]="!addCourse.valid || !model.teachers.length" 
       type="submit"
       color="primary">
       Save issue

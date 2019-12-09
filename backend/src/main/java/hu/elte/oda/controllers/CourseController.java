@@ -82,9 +82,13 @@ public class CourseController {
     }
     
     @PutMapping("/modify/{id}")
-    public ResponseEntity modify(Course course){
+    public ResponseEntity modify(@RequestBody Course course){
+        System.out.println(course.toString());
         if(authenticatedUser.getUser().getRole()==User.Role.ROLE_ADMIN || 
             courseRepository.findById(course.getId()).get().getCreateUser()==authenticatedUser.getUser()){
+                course.setCreateDate(courseRepository.findById(course.getId()).get().getCreateDate());
+                course.setModifyDate(LocalDateTime.now());
+                course.setModifyUser(authenticatedUser.getUser());
                 courseRepository.save(course);
                 return ResponseEntity.ok(course);
         }

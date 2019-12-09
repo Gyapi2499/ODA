@@ -6,6 +6,7 @@ import {  ActivatedRoute, Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { CourseService } from '../course.service';
 import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-modify-course',
@@ -21,7 +22,7 @@ export class ModifyCourseComponent implements OnInit,OnChanges {
   @Output() onSubmit = new EventEmitter<Course>();
   public teachers:User[];
 
-  constructor(private route: ActivatedRoute,private courseService: CourseService,private router:Router,private authService:AuthService){
+  constructor(private route: ActivatedRoute,private courseService: CourseService,private router:Router,private authService:AuthService,private userService:UserService){
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'email',
@@ -37,7 +38,8 @@ export class ModifyCourseComponent implements OnInit,OnChanges {
     if (!form.valid) {
       return;
     }
-    this.model.deadLine=new Date(this.deadline+'T23:59:48.000')
+    this.model.deadLine=new Date(this.deadline+'T23:59:59.000')
+    console.log(this.model)
     this.model = await this.courseService.updateCourse(this.model);
     this.router.navigate(['course/'+this.model.id])
   }
@@ -49,6 +51,7 @@ export class ModifyCourseComponent implements OnInit,OnChanges {
     this.model = Object.assign({}, this.course);
   }
   async ngOnInit(): Promise<void> {
+    this.teachers = await this.userService.getTeachers();
     const id = +this.route.snapshot.paramMap.get('id');
     this.course = await this.courseService.getCourse(id);
     console.log(this.course);
