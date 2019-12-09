@@ -1,4 +1,7 @@
 <form (submit)="submit(addCourse)" #addCourse="ngForm">
+    <div class="nagy">
+        <div class="bal">
+          <h2>Cím:</h2>
     <div class="form-group">
       <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
       <mat-form-field>
@@ -19,7 +22,7 @@
         Title must start with PC...!
       </mat-error>
     </div>
-    
+    <h2>Leírás:</h2>
     <div class="form-group">
       <!-- <small id="descriptionHelp" class="form-text text-muted">The error details</small> -->
       <mat-form-field>
@@ -40,7 +43,7 @@
           Description must start with PC...!
         </mat-error>
     </div>
-
+    <h2>Helyszín:</h2>
     <div class="form-group">
       <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
       <mat-form-field>
@@ -61,7 +64,9 @@
         Location must start with PC...!
       </mat-error>
     </div>
-
+  </div>
+    <div class="jobb">
+        <h2>Időpont:</h2>
     <div class="form-group">
       <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
       <mat-form-field>
@@ -82,7 +87,7 @@
         Date must start with PC...!
       </mat-error>
     </div>
-
+    <h2>Határidő:</h2>
     <div class="form-group">
       <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
       <mat-form-field>
@@ -103,6 +108,7 @@
         deadLine must be a valid date!
       </mat-error>
     </div>
+    <h2>Maximiális létszám:</h2>
     <div class="form-group">
       <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
       <mat-form-field>
@@ -123,6 +129,10 @@
         max must be a valid number!
       </mat-error>
     </div>
+  </div>
+    <div class="kurzust_tartja">
+        <h2>Kurzust tartja:</h2>
+
   <ng-multiselect-dropdown
   name="multi"
   [placeholder]="'custom placeholder'"
@@ -132,7 +142,8 @@
   (onSelect)="onItemSelect($event)"
 >
 </ng-multiselect-dropdown>
-    
+</div>
+</div>
     <button mat-raised-button
       [disabled]="!addCourse.valid" 
       type="submit"
