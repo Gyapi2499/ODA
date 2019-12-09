@@ -1,141 +1,160 @@
 
   <form (submit)="submit(addCourse)" #addCourse="ngForm">
-      <div class="form-group">
-        <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
-        <mat-form-field>
-          <input matInput
-            type="text"
-            name="title"
-            [(ngModel)]="model.name"
-            aria-describedby="locationHelp"
-            placeholder="Enter title"
-            required
-            pattern=""
-            #title="ngModel">
-        </mat-form-field>
-        <mat-error *ngIf="title.invalid && (title.dirty || title.touched) && title.errors.required">
-          Title is required!
-        </mat-error>
-        <mat-error *ngIf="title.invalid && (title.dirty || title.touched) && title.errors.pattern">
-          Title must start with PC...!
-        </mat-error>
-      </div>
-      
-      <div class="form-group">
-        <!-- <small id="descriptionHelp" class="form-text text-muted">The error details</small> -->
-        <mat-form-field>
-          <textarea matInput
-            name="description"
-            [(ngModel)]="model.description"
-            aria-describedby="descriptionHelp"
-            placeholder="Enter course details"
-            required
-            pattern=""
-            #description="ngModel">
-          </textarea>
-        </mat-form-field>
-        <mat-error *ngIf="description.invalid && (description.dirty || description.touched) && description.errors.required">
-            Description is required!
+    <div class="nagy">
+      <div class="bal">
+        <h2>Cím:</h2>
+        <div class="form-group">
+          <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
+          <mat-form-field>
+            <input matInput
+              type="text"
+              name="title"
+              [(ngModel)]="model.name"
+              aria-describedby="locationHelp"
+              placeholder="Enter title"
+              required
+              pattern=""
+              #title="ngModel">
+          </mat-form-field>
+          <mat-error *ngIf="title.invalid && (title.dirty || title.touched) && title.errors.required">
+            Title is required!
           </mat-error>
-          <mat-error *ngIf="description.invalid && (description.dirty || description.touched) && description.errors.pattern">
-            Description must start with PC...!
+          <mat-error *ngIf="title.invalid && (title.dirty || title.touched) && title.errors.pattern">
+            Title must start with PC...!
           </mat-error>
+        </div>
+
+        <h2>Leírás:</h2>
+        <div class="form-group">
+          <!-- <small id="descriptionHelp" class="form-text text-muted">The error details</small> -->
+          <mat-form-field>
+            <textarea matInput
+              name="description"
+              [(ngModel)]="model.description"
+              aria-describedby="descriptionHelp"
+              placeholder="Enter course details"
+              required
+              pattern=""
+              #description="ngModel">
+            </textarea>
+          </mat-form-field>
+          <mat-error *ngIf="description.invalid && (description.dirty || description.touched) && description.errors.required">
+              Description is required!
+            </mat-error>
+            <mat-error *ngIf="description.invalid && (description.dirty || description.touched) && description.errors.pattern">
+              Description must start with PC...!
+            </mat-error>
+        </div>
+
+        <h2>Helyszín:</h2>
+        <div class="form-group">
+          <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
+          <mat-form-field>
+            <input matInput
+              type="text"
+              name="location"
+              [(ngModel)]="model.location"
+              aria-describedby="locationHelp"
+              placeholder="Enter location"
+              required
+              pattern=""
+              #location="ngModel">
+          </mat-form-field>
+          <mat-error *ngIf="location.invalid && (location.dirty || location.touched) && location.errors.required">
+            Location is required!
+          </mat-error>
+          <mat-error *ngIf="location.invalid && (location.dirty || location.touched) && location.errors.pattern">
+            Location must start with PC...!
+          </mat-error>
+        </div>
       </div>
 
+      <div class="jobb">
+        <h2>Időpont:</h2>
+        <div class="form-group">
+          <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
+          <mat-form-field>
+            <input matInput
+              type="text"
+              name="date"
+              [(ngModel)]="model.date"
+              aria-describedby="dateHelp"
+              placeholder="Enter date"
+              required
+              pattern=""
+              #date="ngModel">
+          </mat-form-field>
+          <mat-error *ngIf="date.invalid && (date.dirty || date.touched) && date.errors.required">
+            Date is required!
+          </mat-error>
+          <mat-error *ngIf="date.invalid && (date.dirty || date.touched) && date.errors.pattern">
+            Date must start with PC...!
+          </mat-error>
+        </div>
+
+        <h2>Határidő:</h2>
       <div class="form-group">
         <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
         <mat-form-field>
           <input matInput
             type="text"
-            name="location"
-            [(ngModel)]="model.location"
-            aria-describedby="locationHelp"
-            placeholder="Enter location"
+            name="deadLine"
+            [(ngModel)]="deadline"
+            aria-describedby="deadLineHelp"
+            placeholder="Enter deadline"
             required
-            pattern=""
-            #location="ngModel">
+            pattern="20[1-9][0-9]-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])"
+            #deadLine="ngModel">
         </mat-form-field>
-        <mat-error *ngIf="location.invalid && (location.dirty || location.touched) && location.errors.required">
-          Location is required!
+        <mat-error *ngIf="deadLine.invalid && (deadLine.dirty || deadLine.touched) && deadLine.errors.required">
+          deadLine is required!
         </mat-error>
-        <mat-error *ngIf="location.invalid && (location.dirty || location.touched) && location.errors.pattern">
-          Location must start with PC...!
+        <mat-error *ngIf="deadLine.invalid && (deadLine.dirty || deadLine.touched) && deadLine.errors.pattern">
+          deadLine must be a valid date!
         </mat-error>
       </div>
+
+      <h2>Maximiális létszám:</h2>
       <div class="form-group">
         <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
         <mat-form-field>
           <input matInput
-            type="text"
-            name="date"
-            [(ngModel)]="model.date"
-            aria-describedby="dateHelp"
-            placeholder="Enter date"
+            type="number"
+            name="max"
+            [(ngModel)]="model.maxNumber"
+            aria-describedby="deadLineHelp"
+            placeholder="Enter max number"
             required
-            pattern=""
-            #date="ngModel">
+            pattern="[1-9][0-9]*"
+            #max="ngModel">
         </mat-form-field>
-        <mat-error *ngIf="date.invalid && (date.dirty || date.touched) && date.errors.required">
-          Date is required!
+        <mat-error *ngIf="max.invalid && (max.dirty || max.touched) && max.errors.required">
+          max is required!
         </mat-error>
-        <mat-error *ngIf="date.invalid && (date.dirty || date.touched) && date.errors.pattern">
-          Date must start with PC...!
+        <mat-error *ngIf="max.invalid && (max.dirty || max.touched) && max.errors.pattern">
+          max must be a valid number!
         </mat-error>
       </div>
-    <div class="form-group">
-      <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
-      <mat-form-field>
-        <input matInput
-          type="text"
-          name="deadLine"
-          [(ngModel)]="deadline"
-          aria-describedby="deadLineHelp"
-          placeholder="Enter deadline"
-          required
-          pattern="20[1-9][0-9]-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])"
-          #deadLine="ngModel">
-      </mat-form-field>
-      <mat-error *ngIf="deadLine.invalid && (deadLine.dirty || deadLine.touched) && deadLine.errors.required">
-        deadLine is required!
-      </mat-error>
-      <mat-error *ngIf="deadLine.invalid && (deadLine.dirty || deadLine.touched) && deadLine.errors.pattern">
-        deadLine must be a valid date!
-      </mat-error>
     </div>
-    <div class="form-group">
-      <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
-      <mat-form-field>
-        <input matInput
-          type="number"
-          name="max"
-          [(ngModel)]="model.maxNumber"
-          aria-describedby="deadLineHelp"
-          placeholder="Enter max number"
-          required
-          pattern="[1-9][0-9]*"
-          #max="ngModel">
-      </mat-form-field>
-      <mat-error *ngIf="max.invalid && (max.dirty || max.touched) && max.errors.required">
-        max is required!
-      </mat-error>
-      <mat-error *ngIf="max.invalid && (max.dirty || max.touched) && max.errors.pattern">
-        max must be a valid number!
-      </mat-error>
-    </div>
-  <ng-multiselect-dropdown
-  name="multi"
-  [placeholder]="'custom placeholder'"
-  [data]="teachers"
-  [(ngModel)]="model.teachers"
-  [settings]="dropdownSettings"
-  (onSelect)="onItemSelect($event)"
->
-</ng-multiselect-dropdown>
-    
-    <button mat-raised-button
-      [disabled]="!addCourse.valid || !model.teachers.length" 
-      type="submit"
-      color="primary">
-      Save issue
-    </button>
+
+    <div class="kurzust_tartja">
+      <h2>Kurzust tartja:</h2>
+    <ng-multiselect-dropdown
+    name="multi"
+    [placeholder]="'custom placeholder'"
+    [data]="teachers"
+    [(ngModel)]="model.teachers"
+    [settings]="dropdownSettings"
+    (onSelect)="onItemSelect($event)"
+  >
+  </ng-multiselect-dropdown>
+</div>
+</div>
+      
+      <button mat-raised-button
+        [disabled]="!addCourse.valid || !model.teachers.length" 
+        type="submit"
+        color="primary">
+        Save issue
+      </button>
   </form>
